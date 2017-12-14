@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 abstract public class Gun : MonoBehaviour {
 
@@ -51,5 +52,9 @@ abstract public class Gun : MonoBehaviour {
 
 	private void SetCanShootToTrue () {
 		canShoot = true;
+	}
+
+	public void ShowAmmoAmount(Text bulletsText) {
+		bulletsText.text = "Ammo: " + currentAmmo + " | " + ammoOnRound;
 	}
 }

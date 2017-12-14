@@ -15,6 +15,7 @@ public abstract class Player : MonoBehaviour {
 	public Rigidbody2D myRigidBody;
 	public Gun currentGun;
 	public Image healthBar;
+	public Text bulletsText;
 
 	//Move
 	protected void Move (Vector2 moveVector, Rigidbody2D moveRigidBody) {
@@ -32,6 +33,8 @@ public abstract class Player : MonoBehaviour {
 			transform.rotation = Quaternion.Euler (0, 0, 0);
 		}
 
+		/***  Gambiarra - mostra balas***/
+		currentGun.ShowAmmoAmount(bulletsText);
 	}
 
 	//Shoot

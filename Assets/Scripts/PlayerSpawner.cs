@@ -28,6 +28,7 @@ public class PlayerSpawner : MonoBehaviour {
                 (InputSource)PlayerPrefs.GetInt("Player" + (i+1).ToString() + "InputSource");
             players[i].transform.position = spawnPoints[i];
             players[i].GetComponent<Player>().healthBar = healthBarCanvas[i].transform.GetChild(2).GetComponent<Image>();
+            players[i].GetComponent<Player>().bulletsText = healthBarCanvas[i].transform.GetChild(3).GetComponent<Text>();
         }
         for (int i = playerAmount; i < 4; ++i)
             healthBarCanvas[i].GetComponent<CanvasGroup>().alpha = 0;
