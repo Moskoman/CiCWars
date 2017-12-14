@@ -35,8 +35,6 @@ abstract public class Gun : MonoBehaviour {
 			coolDownWeapon = fireRate + Time.time;
 			ammoOnRound--;
 			currentAmmo--;
-			Debug.Log ("current: " + currentAmmo);
-			Debug.Log ("onRound; " + ammoOnRound);
 		}
 	}
 
