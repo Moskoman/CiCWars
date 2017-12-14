@@ -49,6 +49,7 @@ public class CharSelectList : MonoBehaviour {
                     madeSelection = true;
                     CharSelectionMenu.instance.selections[playerId] = currentChar;
                     chars[currentChar].selected = true;
+                    chars[currentChar].transform.GetChild(0).GetComponent<Animator>().SetTrigger("Selected");
                 }
             }
         }
