@@ -36,7 +36,6 @@ public class Bullet : MonoBehaviour {
 			if (hitedPlayer.id != shooterId) {
 				hitedPlayer.life -= damage;
 				hitedPlayer.healthBar.fillAmount = ((float)hitedPlayer.life / (float)hitedPlayer.maxLife);
-				Debug.Log (hitedPlayer.life);
 				Destroy (gameObject);
 			}
 		}
