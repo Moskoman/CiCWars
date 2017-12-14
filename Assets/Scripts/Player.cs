@@ -24,6 +24,11 @@ public abstract class Player : MonoBehaviour {
 		} 
 		else
 			myAnimator.SetBool ("Moving", true);
+		if (moveRigidBody.velocity.x < 0) {
+			transform.rotation = Quaternion.Euler (0, 180, 0);
+		} else if (moveRigidBody.velocity.x > 0) {
+			transform.rotation = Quaternion.Euler (0, 0, 0);
+		}
 	
 	}
 
