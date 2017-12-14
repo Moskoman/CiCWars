@@ -9,6 +9,7 @@ public class Bullet : MonoBehaviour {
 	private Player hitedPlayer;
 	private Rigidbody2D bulletRigdyBody;
 	public Vector2 bulletDirection;
+	public int shooterId;
 
 	// Use this for initialization
 	void Start () {
@@ -26,10 +27,15 @@ public class Bullet : MonoBehaviour {
 		bulletRigdyBody.velocity = bulletDirection * speed;
 	}
 
-/*	void OnCollisionEnter2D (Collision2D collisionInfo){
-		hitedPlayer = collisionInfo.gameObject.GetComponent<Player>();
-		hitedPlayer.life -= 10;
-		Destroy (this.gameObject, 2f);
-	} */
+	void OnCollisionEnter2D (Collision2D collisionInfo){
+
+		if (collisionInfo.gameObject.tag == "Player") {
+			hitedPlayer = collisionInfo.gameObject.GetComponent<Player> ();
+			if (hitedPlayer.id != shooterId) {
+				hitedPlayer.life -= damage;
+				Destroy (gameObject);
+			}
+		}
+	} 
 
 }

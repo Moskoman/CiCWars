@@ -6,6 +6,7 @@ public class Ladeira : Player {
 
 	// Use this for initialization
 	void Start () {
+		id = 1;
 		alive = true;
 		canDash = true;
 		life = 100;

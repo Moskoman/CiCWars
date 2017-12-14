@@ -7,6 +7,7 @@ public class Boneboy : Player {
 
 	// Use this for initialization
 	void Start () {
+		id = 0;
 		alive = true;
 		canDash = true;
 		life = 100;

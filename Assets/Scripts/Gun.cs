@@ -21,11 +21,12 @@ abstract public class Gun : MonoBehaviour {
 		
 	}
 
-	public void Shoot (Vector2 bulletDirection) {
+	public void Shoot (Vector2 bulletDirection, int shooterId) {
 		if (canShoot == true && coolDownWeapon <= Time.time) {
 			Quaternion bulletRotation = Quaternion.Euler (new Vector3(bulletDirection.x * Mathf.Rad2Deg, bulletDirection.y * Mathf.Rad2Deg, 0));
-			bullet = Instantiate (bullet, shotSpawn.transform.position, bulletRotation);
+			Instantiate (bullet, shotSpawn.transform.position, bulletRotation);
 			bullet.GetComponent<Bullet> ().bulletDirection = bulletDirection;
+			bullet.GetComponent<Bullet> ().shooterId = shooterId;
 			coolDownWeapon = fireRate + Time.time;
 		}
 	}

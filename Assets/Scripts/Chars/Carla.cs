@@ -6,6 +6,7 @@ public class Carla : Player {
 	
 	// Use this for initialization
 	void Start () {
+		id = 2;
 		alive = true;
 		canDash = true;
 		life = 100;

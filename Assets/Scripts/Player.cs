@@ -6,7 +6,7 @@ public abstract class Player : MonoBehaviour {
 
 	public InputSource inputSource;
 	private Animator myAnimator;
-	public int life, speed;
+	public int life, speed, id;
 	protected bool alive, canDash;
 	public Vector2 moveDirection;
 	public Vector2 shootDirection;
@@ -36,7 +36,7 @@ public abstract class Player : MonoBehaviour {
 	protected void Shoot () {
 		if (InputManager.ShootButton(inputSource)){
 			shootDirection = getInputJoyRight ();
-			currentGun.Shoot(shootDirection);
+			currentGun.Shoot(shootDirection, id);
 		}
 	}
 
