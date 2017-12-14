@@ -40,7 +40,7 @@ GameObject:
   - component: {fileID: 61025594761630826}
   - component: {fileID: 95085861734291140}
   - component: {fileID: 114136289347121964}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Ladeira
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -329,6 +329,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf70c7452b6049a4cb0ac60a24c5c937, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentAmmo: 28
   Id: 0
   bullet: {fileID: 1407532301183102, guid: 6f7ec4037e40f574bb5626e1eee5d5e6, type: 2}
   shotSpawn: {fileID: 1916847444622472}
@@ -349,11 +350,14 @@ MonoBehaviour:
   life: 0
   speed: 0
   id: 0
+  maxLife: 0
   moveDirection: {x: 0, y: 0}
   shootDirection: {x: 0, y: 0}
   dashDirection: {x: 0, y: 0}
   myRigidBody: {fileID: 50039679490521832}
   currentGun: {fileID: 114140917617944542}
+  healthBar: {fileID: 0}
+  bulletsText: {fileID: 0}
 --- !u!212 &212246011006059298
 SpriteRenderer:
   m_ObjectHideFlags: 1

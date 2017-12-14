@@ -40,7 +40,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4568412035977686}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Holster
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -307,6 +307,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf70c7452b6049a4cb0ac60a24c5c937, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentAmmo: 28
   Id: 0
   bullet: {fileID: 1407532301183102, guid: 6f7ec4037e40f574bb5626e1eee5d5e6, type: 2}
   shotSpawn: {fileID: 1964410695713920}
@@ -327,11 +328,14 @@ MonoBehaviour:
   life: 0
   speed: 0
   id: 0
+  maxLife: 0
   moveDirection: {x: 0, y: 0}
   shootDirection: {x: 0, y: 0}
   dashDirection: {x: 0, y: 0}
   myRigidBody: {fileID: 50162620241728994}
   currentGun: {fileID: 114304197405606702}
+  healthBar: {fileID: 0}
+  bulletsText: {fileID: 0}
 --- !u!114 &114667901289993190
 MonoBehaviour:
   m_ObjectHideFlags: 1

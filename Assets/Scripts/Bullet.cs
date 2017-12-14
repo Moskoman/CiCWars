@@ -29,16 +29,18 @@ public class Bullet : MonoBehaviour {
 		bulletRigdyBody.velocity = bulletDirection * speed;
 	}
 
-	void OnCollisionEnter2D (Collision2D collisionInfo){
+	void OnTriggerEnter2D (Collider2D other){
 
-		if (collisionInfo.gameObject.tag == "Player") {
-			hitedPlayer = collisionInfo.gameObject.GetComponent<Player> ();
+		if (other.gameObject.tag == "Player") {
+			hitedPlayer = other.gameObject.GetComponent<Player> ();
 			if (hitedPlayer.id != shooterId) {
 				hitedPlayer.life -= damage;
 				hitedPlayer.healthBar.fillAmount = ((float)hitedPlayer.life / (float)hitedPlayer.maxLife);
 				Destroy (gameObject);
 			}
 		}
+		if (other.gameObject.layer == 10)
+			Destroy(gameObject);
 	}
 
 }
