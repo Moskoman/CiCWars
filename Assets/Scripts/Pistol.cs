@@ -9,8 +9,10 @@ public class Pistol : Gun {
 
 	public Pistol () {
 		Id = 0;
-		maxAmmo = 10;
+		maxAmmo = currentAmmo = 28;
+		roundCapacity = ammoOnRound = 7;
 		coolDownWeapon = 0.5f;
+		reloadTime = 1f;
 		fireRate = 0.5f;
 		canShoot = true;
 
