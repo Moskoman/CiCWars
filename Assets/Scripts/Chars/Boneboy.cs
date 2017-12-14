@@ -12,7 +12,7 @@ public class Boneboy : Player {
 		life = 100;
 		speed = 10;
 		myRigidBody = GetComponent<Rigidbody2D> ();	}
-	
+
 	// Update is called once per frame
 	void Update () {
 		if (alive) {

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public abstract class Player : MonoBehaviour {
 
+	public InputSource inputSource;
 	public int life, speed;
 	protected bool alive, canDash;
 	public Vector2 moveDirection;
@@ -14,23 +15,22 @@ public abstract class Player : MonoBehaviour {
 
 	//Move
 	protected void Move (Vector2 moveVector, Rigidbody2D moveRigidBody) {
-		moveVector = getInputJoyLeft (moveVector);
+		moveVector = getInputJoyLeft ();
 		moveRigidBody.velocity = moveVector * speed;
-
 	}
 
 	//Shoot
 	protected void Shoot () {
-		if (Input.GetButton("RB")){
-			shootDirection = getInputJoyRight (shootDirection);
+		if (InputManager.ShootButton(inputSource)){
+			shootDirection = getInputJoyRight ();
 			currentGun.Shoot(shootDirection);
 		}
 	}
 
 	//Dash
 	protected void Dash () {
-		if (Input.GetAxisRaw ("Triggers") < 0.0f && canDash) {
-			dashDirection = getInputJoyLeft (dashDirection);
+		if (InputManager.DashButton(inputSource) < 0.0f && canDash) {
+			dashDirection = getInputJoyLeft ();
 			myRigidBody.AddForce ((dashDirection * 10), ForceMode2D.Impulse );
 
 		}
@@ -41,23 +41,17 @@ public abstract class Player : MonoBehaviour {
 
 	//Super Input
 	protected void SuperInput () {
-		if (Input.GetButtonDown ("LB")){
+		if (InputManager.SuperButton(inputSource)){
 			Super();
 		}
 	}
 
-	protected Vector2 getInputJoyRight (Vector2 targetVector){
-		targetVector.x = Input.GetAxisRaw ("R_Horizontal");
-		targetVector.y = Input.GetAxisRaw ("R_Vertical");
-
-		return targetVector;
+	protected Vector2 getInputJoyRight (){
+		return InputManager.JoyRight(inputSource, gameObject);
 	}
 
-	Vector2 getInputJoyLeft (Vector2 targetVector){
-		targetVector.x = Input.GetAxisRaw ("L_Horizontal");
-		targetVector.y = Input.GetAxisRaw ("L_Vertical");
-
-		return targetVector;
+	Vector2 getInputJoyLeft (){
+		return InputManager.JoyLeft(inputSource);
 	}
 
 
