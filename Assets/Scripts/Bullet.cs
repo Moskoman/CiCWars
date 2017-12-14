@@ -18,10 +18,10 @@ public class Bullet : MonoBehaviour {
 		hitedPlayer = null;
 		Move ();
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
-		
+
 	}
 
 	void Move () {
@@ -40,6 +40,6 @@ public class Bullet : MonoBehaviour {
 				Destroy (gameObject);
 			}
 		}
-	} 
+	}
 
 }
