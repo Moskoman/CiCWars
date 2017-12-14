@@ -51,6 +51,7 @@ public class CharSelectionMenu : MonoBehaviour {
             PlayerPrefs.SetInt("Player" + (i+1).ToString() + "InputSource", sources[i]);
             PlayerPrefs.SetInt("Player" + (i+1).ToString() + "Char", selections[i]);
         }
+        Score.instance.scores = new int[currentPlayer];
         SceneManager.LoadScene(gameScene);
     }
 }

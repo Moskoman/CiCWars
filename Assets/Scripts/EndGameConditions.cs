@@ -1,8 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EndGameConditions : MonoBehaviour {
+
+    public string victoryScene = "Start Menu";
 
     void Update() {
         int livePlayers = 0;
@@ -14,7 +17,11 @@ public class EndGameConditions : MonoBehaviour {
             }
         }
         if (livePlayers == 1) {
-            Debug.Log("Player " + (index+1) + " wins!");
+            Score.instance.scores[index]++;
+            if (Score.instance.scores[index] >= 3)
+                SceneManager.LoadScene(victoryScene);
+            else
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
 }
