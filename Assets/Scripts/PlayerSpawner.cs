@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerSpawner : MonoBehaviour {
 
@@ -10,6 +11,7 @@ public class PlayerSpawner : MonoBehaviour {
     public Vector2[] spawnPoints = new Vector2[4];
     public int playerAmount;
     public List<GameObject> players = new List<GameObject>();
+    public List<GameObject> healthBarCanvas = new List<GameObject>();
 
     void Awake() {
         if (instance)
@@ -25,7 +27,10 @@ public class PlayerSpawner : MonoBehaviour {
             players[i].GetComponent<Player>().inputSource =
                 (InputSource)PlayerPrefs.GetInt("Player" + (i+1).ToString() + "InputSource");
             players[i].transform.position = spawnPoints[i];
+            players[i].GetComponent<Player>().healthBar = healthBarCanvas[i].transform.GetChild(2).GetComponent<Image>();
         }
+        for (int i = playerAmount; i < 4; ++i)
+            healthBarCanvas[i].GetComponent<CanvasGroup>().alpha = 0;
     }
 
     void OnDrawGizmosSelected() {
