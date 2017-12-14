@@ -200,11 +200,6 @@ Prefab:
       propertyPath: useController
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114051237810896492, guid: 0aad1cbc7859e3c4abd781cc99daa4df,
-        type: 2}
-      propertyPath: inputSource
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0aad1cbc7859e3c4abd781cc99daa4df, type: 2}
   m_IsPrefabParent: 0
