@@ -5,7 +5,8 @@ using UnityEngine.UI;
 
 abstract public class Gun : MonoBehaviour {
 
-	protected int maxAmmo, roundCapacity, currentAmmo, ammoOnRound;
+	protected int maxAmmo, roundCapacity, ammoOnRound;
+	public int currentAmmo;
 	protected float reloadTime, coolDownWeapon, fireRate;
 	protected bool canShoot;
 	public int Id;
