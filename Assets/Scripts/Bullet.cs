@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Bullet : MonoBehaviour {
 
@@ -10,6 +11,7 @@ public class Bullet : MonoBehaviour {
 	private Rigidbody2D bulletRigdyBody;
 	public Vector2 bulletDirection;
 	public int shooterId;
+
 
 	// Use this for initialization
 	void Start () {
@@ -33,6 +35,8 @@ public class Bullet : MonoBehaviour {
 			hitedPlayer = collisionInfo.gameObject.GetComponent<Player> ();
 			if (hitedPlayer.id != shooterId) {
 				hitedPlayer.life -= damage;
+				hitedPlayer.healthBar.fillAmount = ((float)hitedPlayer.life / (float)hitedPlayer.maxLife);
+				Debug.Log (hitedPlayer.life);
 				Destroy (gameObject);
 			}
 		}

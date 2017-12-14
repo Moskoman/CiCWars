@@ -1,18 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public abstract class Player : MonoBehaviour {
 
 	public InputSource inputSource;
 	private Animator myAnimator;
-	public int life, speed, id;
+	public int life, speed, id, maxLife;
 	protected bool alive, canDash;
 	public Vector2 moveDirection;
 	public Vector2 shootDirection;
 	public Vector2 dashDirection;
 	public Rigidbody2D myRigidBody;
 	public Gun currentGun;
+	public Image healthBar;
 
 	//Move
 	protected void Move (Vector2 moveVector, Rigidbody2D moveRigidBody) {

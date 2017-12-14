@@ -10,7 +10,7 @@ public class Boneboy : Player {
 		id = 0;
 		alive = true;
 		canDash = true;
-		life = 100;
+		life = maxLife = 100;
 		speed = 10;
 		myRigidBody = GetComponent<Rigidbody2D> ();	}
 
