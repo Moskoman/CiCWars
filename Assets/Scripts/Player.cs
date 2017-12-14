@@ -5,7 +5,7 @@ using UnityEngine;
 public abstract class Player : MonoBehaviour {
 
 	public InputSource inputSource;
-	public Animator myAnimator;
+	private Animator myAnimator;
 	public int life, speed;
 	protected bool alive, canDash;
 	public Vector2 moveDirection;
