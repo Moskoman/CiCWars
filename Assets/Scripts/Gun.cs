@@ -42,13 +42,13 @@ abstract public class Gun : MonoBehaviour {
 
 	public void Reload () {
 		reloadSound.Play ();
-		if (maxAmmo >= roundCapacity) {
+		if (currentAmmo >= roundCapacity) {
 			ammoOnRound = roundCapacity;
-			maxAmmo -= roundCapacity;
 			Invoke ("SetCanShootToTrue", reloadTime);
-		} else
+		} else if (currentAmmo < roundCapacity && currentAmmo > 0) {
 			ammoOnRound = maxAmmo;
 			Invoke ("SetCanShootToTrue", reloadTime);
+		}
 	}
 
 	private void SetCanShootToTrue () {
