@@ -9,8 +9,8 @@ public class Ladeira : Player {
 		id = 1;
 		alive = true;
 		canDash = true;
-		life = 100;
-		speed = 10;
+		life = maxLife = 150;
+		speed = 8;
 		myRigidBody = GetComponent<Rigidbody2D> ();	}
 
 	// Update is called once per frame

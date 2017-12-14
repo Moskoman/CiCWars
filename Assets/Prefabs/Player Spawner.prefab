@@ -62,3 +62,8 @@ MonoBehaviour:
   - {x: 1.8076924, y: -0.9615385}
   playerAmount: 0
   players: []
+  healthBarCanvas:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
