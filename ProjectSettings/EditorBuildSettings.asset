@@ -14,3 +14,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Mapa1.unity
     guid: d6c7ba20526034a459c0eae4dc877c22
+  - enabled: 1
+    path: Assets/Victory Screen.unity
+    guid: 1dbacde4ad369e340aa20d2238712138

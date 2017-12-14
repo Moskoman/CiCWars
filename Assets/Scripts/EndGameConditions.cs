@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class EndGameConditions : MonoBehaviour {
 
-    public string victoryScene = "Start Menu";
+    public string victoryScene = "Victory Screen";
 
     void Update() {
         int livePlayers = 0;
@@ -19,9 +19,15 @@ public class EndGameConditions : MonoBehaviour {
         if (livePlayers == 1) {
             Score.instance.scores[index]++;
             if (Score.instance.scores[index] >= 3)
-                SceneManager.LoadScene(victoryScene);
+                Victory(index);
             else
                 SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
+    }
+
+    void Victory(int player) {
+        PlayerPrefs.SetInt("VictorPlayer", player);
+        PlayerPrefs.SetInt("VictorChar", PlayerPrefs.GetInt("Player" + (player+1).ToString() + "Char"));
+        SceneManager.LoadScene(victoryScene);
     }
 }
