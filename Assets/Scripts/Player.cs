@@ -21,7 +21,7 @@ public abstract class Player : MonoBehaviour {
 		moveRigidBody.velocity = moveVector * speed;
 		if (alive == false || moveRigidBody.velocity == new Vector2 (0, 0)) {
 			myAnimator.SetBool ("Moving", false);
-		} 
+		}
 		else
 			myAnimator.SetBool ("Moving", true);
 		if (moveRigidBody.velocity.x < 0) {
@@ -29,15 +29,21 @@ public abstract class Player : MonoBehaviour {
 		} else if (moveRigidBody.velocity.x > 0) {
 			transform.rotation = Quaternion.Euler (0, 0, 0);
 		}
-	
+
 	}
 
 	//Shoot
 	protected void Shoot () {
-		if (InputManager.ShootButton(inputSource)){
-			shootDirection = getInputJoyRight ();
+		shootDirection = getInputJoyRight ();
+
+		float angle = Mathf.Rad2Deg * Mathf.Atan2(shootDirection.y, shootDirection.x);
+		if (Mathf.Abs(angle) > 90)
+			transform.GetChild(0).transform.rotation = Quaternion.Euler(0, 180, 180-angle);
+		else
+			transform.GetChild(0).transform.rotation = Quaternion.Euler(0, 0, angle);
+
+		if (InputManager.ShootButton(inputSource))
 			currentGun.Shoot(shootDirection, id);
-		}
 	}
 
 	//Dash
