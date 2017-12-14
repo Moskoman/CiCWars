@@ -5,10 +5,15 @@ using UnityEngine;
 public class HealthBox : Item {
 
 	public int bonusLife = 30;
-	protected void ApplyEffect (GameObject Player) {
-	
+
+	public override void ApplyEffect (GameObject Player) {
+
 		Player myPlayer = Player.GetComponent<Player> ();
-		myPlayer.life += bonusLife;
+		if (myPlayer.life + bonusLife >= myPlayer.maxLife) {
+			myPlayer.life = myPlayer.maxLife;
+		}
+		else 
+			myPlayer.life += bonusLife;
 			
 	}
 

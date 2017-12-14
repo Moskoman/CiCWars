@@ -6,11 +6,14 @@ public class AmmoBox : Item {
 
 	public int bonusAmmo;
 
-	protected void ApplyEffect (GameObject player) {
-	
+	public override void ApplyEffect (GameObject player) {
+
 		Gun myGun = player.GetComponent<Player> ().currentGun;
 		bonusAmmo = Random.Range (10, 50);
-		myGun.currentAmmo += bonusAmmo; 
+		if (myGun.currentAmmo + bonusAmmo >= myGun.maxAmmo) {
+			myGun.currentAmmo = myGun.maxAmmo; 
+		} else
+			myGun.currentAmmo += bonusAmmo;
 	}
 
 }

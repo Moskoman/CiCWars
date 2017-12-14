@@ -21,8 +21,10 @@ public class ItemBox : MonoBehaviour {
 	void OnCollisionEnter2D (Collision2D collisionInfo) {
 
 		if (collisionInfo.gameObject.tag == "Player") {
-			int random = Random.Range (0, 1);
+			int random = Random.Range (0, 2);
+			Debug.Log (random);
 			Itens [random].ApplyEffect(collisionInfo.gameObject);
+			Destroy (gameObject);
 		}
 	}
 
