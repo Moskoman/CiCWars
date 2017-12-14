@@ -5,6 +5,7 @@ using UnityEngine;
 public abstract class Player : MonoBehaviour {
 
 	public InputSource inputSource;
+	public Animator myAnimator;
 	public int life, speed;
 	protected bool alive, canDash;
 	public Vector2 moveDirection;
@@ -15,8 +16,15 @@ public abstract class Player : MonoBehaviour {
 
 	//Move
 	protected void Move (Vector2 moveVector, Rigidbody2D moveRigidBody) {
+		myAnimator = GetComponent<Animator> ();
 		moveVector = getInputJoyLeft ();
 		moveRigidBody.velocity = moveVector * speed;
+		if (alive == false || moveRigidBody.velocity == new Vector2 (0, 0)) {
+			myAnimator.SetBool ("Moving", false);
+		} 
+		else
+			myAnimator.SetBool ("Moving", true);
+	
 	}
 
 	//Shoot
