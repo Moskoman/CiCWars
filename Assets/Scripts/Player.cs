@@ -73,7 +73,9 @@ public abstract class Player : MonoBehaviour {
 	protected bool Die () {
 		if (life <= 0) {
 			alive = false;
-			speed = 0;
+			if (speed > 0) {
+				speed--;
+			}
 		}
 		return alive;
 	}

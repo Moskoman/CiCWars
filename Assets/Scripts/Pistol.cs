@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Pistol : Gun {
 
+	private int shineAnimationControler = 0;
+	public Animator myAnimator;
+
 	public Pistol () {
 		Id = 0;
 		maxAmmo = 10;
@@ -14,10 +17,20 @@ public class Pistol : Gun {
 	}
 	// Use this for initialization
 	void Start () {
+		myAnimator = GetComponent<Animator> ();
+
 	}
 	
 	// Update is called once per frame
 	void Update () {
+
+		shineAnimationControler = Random.Range (0, 100);
+		if (shineAnimationControler >= 80) {
+
+			myAnimator.SetBool ("Can_shine", true);
+		} else
+			myAnimator.SetBool ("Can_shine", false);
+
 		
 	}
 		
