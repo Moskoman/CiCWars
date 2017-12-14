@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Bullet : MonoBehaviour {
 
-	private int speed = 10;
+	private int speed = 20;
 	public int damage = 15;
 	private Player hitedPlayer;
 	private Rigidbody2D bulletRigdyBody;

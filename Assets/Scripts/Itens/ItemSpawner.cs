@@ -13,7 +13,7 @@ public class ItemSpawner : MonoBehaviour {
 			Invoke ("SpawnBox", 4f);
 
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
 
@@ -21,7 +21,7 @@ public class ItemSpawner : MonoBehaviour {
 	}
 
 	protected void SpawnBox () {
-		if (luckySpawn >= 900) {
+		if (luckySpawn >= 600) {
 			Transform spawnPosition = transform;
 			if (GameObject.FindGameObjectWithTag ("ItemBox") == null) {
 				spawnPosition.position = new Vector3 (Random.Range (-8.56f, 8.20f), Random.Range (-4.5f, 3.25f), 0);
@@ -30,6 +30,6 @@ public class ItemSpawner : MonoBehaviour {
 
 		}
 			Invoke ("SpawnBox", 10f);
-		
+
 	}
 }

@@ -9,7 +9,7 @@ public class Pistol : Gun {
 
 	public Pistol () {
 		Id = 0;
-		maxAmmo = currentAmmo = 28;
+		maxAmmo = currentAmmo = 50;
 		roundCapacity = ammoOnRound = 7;
 		coolDownWeapon = 0.5f;
 		reloadTime = 1f;
@@ -22,7 +22,7 @@ public class Pistol : Gun {
 		myAnimator = GetComponent<Animator> ();
 
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
 
@@ -33,7 +33,7 @@ public class Pistol : Gun {
 		} else
 			myAnimator.SetBool ("Can_shine", false);
 
-		
+
 	}
-		
+
 }
